@@ -1,8 +1,16 @@
 # ECO Type
 
-ECO Type es una colección de fuentes abiertas derivadas para documentos legales, académicos y de oficina. Las variantes ECO reducen el área de contorno rellenado de los glifos sin cambiar los avances, el kerning ni las métricas verticales del diseño de partida.
+ECO Type es una colección de tipografías para documentos legales, académicos y de oficina. Publica el método, los resultados y los límites de cada medición; ninguna cifra representa una garantía de consumo físico de tinta.
 
-## Familias
+## Fuente estrella: ECO Sumiha Beta
+
+**ECO Sumiha Beta 0.5** es una sans humanista original de Shiro Labs, construida desde cero con trazos continuos y sin perforaciones visibles. Frente a Arimo Regular, la simulación rasterizada a 11 pt y 600 dpi estima 20,01 % menos cobertura negra en el corpus legal, 19,71 % en el académico y 19,79 % en oficina: **19,84 % de promedio aritmético**.
+
+La fuente no tiene pruebas de laboratorio. El resultado no equivale a miligramos de tinta, rendimiento de cartuchos, velocidad de impresión ni reducción ambiental garantizada. La fórmula, los corpus y el procedimiento están publicados en [`ECO-SUMIHA-METHOD.md`](ECO-SUMIHA-METHOD.md).
+
+La beta se distribuye sin costo para uso personal, académico y evaluación interna bajo la [`Shiro Labs ECO Sumiha Free Beta License 1.0`](LICENSES/ECO-SUMIHA-BETA-LICENSE.txt). No autoriza producción comercial, redistribución, modificación ni embedding. Las versiones futuras o derechos comerciales podrán ofrecerse mediante pago. “ECO Sumiha” es un nombre provisional sujeto a búsqueda formal de marcas.
+
+## Familias derivadas abiertas
 
 - **ECO Tempura Serif** deriva de Source Serif 4. Está pensada para lectura extensa, contratos e informes.
 - **ECO Karubi Sans** deriva de Lato. Está pensada para documentos académicos e informes.
@@ -22,7 +30,7 @@ Los niveles no prometen un porcentaje universal de tinta ni una mayor velocidad 
 
 ## Licencias y avisos
 
-Las fuentes ECO son modificaciones distribuidas bajo SIL Open Font License 1.1. Consulta el texto completo en [`LICENSES/OFL-1.1.txt`](LICENSES/OFL-1.1.txt) y los avisos de atribución en:
+ECO Tempura, ECO Karubi y ECO Arare son modificaciones distribuidas bajo SIL Open Font License 1.1. ECO Sumiha utiliza una licencia beta propietaria distinta. Consulta el texto OFL en [`LICENSES/OFL-1.1.txt`](LICENSES/OFL-1.1.txt) y los avisos de atribución en:
 
 - [`LICENSES/NOTICE-Source-Serif-4.txt`](LICENSES/NOTICE-Source-Serif-4.txt)
 - [`LICENSES/NOTICE-Lato.txt`](LICENSES/NOTICE-Lato.txt)
@@ -34,7 +42,7 @@ Los paquetes de `releases/` incluyen las cuatro variantes de estilo, el aviso de
 
 ## Reconstrucción
 
-Ejecuta `build_eco_fonts.py` con FontTools instalado. Las fuentes base variables de Source Serif 4 y Arimo están incluidas para reproducibilidad; Lato se toma de la instalación local de Windows. Verifica los resultados con `verify_eco_fonts.py`.
+Ejecuta `build_eco_fonts.py` para las familias derivadas y `build_sumiha_universal.py` para ECO Sumiha. Las dependencias del generador original están declaradas en `requirements-font-build.txt`. Verifica Sumiha con `measure_sumiha_universal.py` y las familias derivadas con `verify_eco_fonts.py`.
 
 ## Sitio y calculadora
 

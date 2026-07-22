@@ -8,6 +8,7 @@ tools/
 # Operating system and editor files
 .DS_Store
 Thumbs.db
+__pycache__/
 
 # Local Netlify folder
 .netlify

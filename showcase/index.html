@@ -3,19 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Familias tipográficas ECO abiertas para documentos legales, académicos y de oficina.">
+  <meta name="description" content="Tipografías ECO para documentos, con mediciones reproducibles de cobertura y límites publicados.">
   <title>ECO Type — menos cobertura, más control</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav class="nav"><a class="brand" href="#inicio">ECO<span>TYPE</span></a><div><a href="#familias">Familias</a><a href="#datos">Datos</a><a class="nav-cta" href="../calculadora-tinta.html">Simular una hoja</a></div></nav>
+  <nav class="nav"><a class="brand" href="#inicio">ECO<span>TYPE</span></a><div><a href="#sumiha">Fuente estrella</a><a href="#familias">Familias</a><a href="#datos">Datos</a><a class="nav-cta" href="../calculadora-tinta.html">Simular una hoja</a></div></nav>
   <main id="inicio">
     <section class="hero">
       <p class="eyebrow">Tipografía para papel que importa</p>
       <h1>Menos cobertura.<br><em>Más control.</em></h1>
-      <p class="lede">Fuentes abiertas para contratos, informes y tesis. Reducen de forma medida el área de contorno rellenado, conservando los avances, el kerning y las métricas verticales del diseño de partida.</p>
-      <div class="hero-actions"><a class="button primary" href="#familias">Explorar familias</a><a class="button ghost" href="#datos">Ver el método</a></div>
-      <div class="baseline"><span>Base</span><b>2,3–2,4 %</b><span>menos área de contorno medida*</span></div>
+      <p class="lede">Tipografías para contratos, informes y tesis con resultados medidos y metodología pública. Las cifras describen cobertura simulada: no son promesas de consumo físico.</p>
+      <div class="hero-actions"><a class="button primary" href="#sumiha">Conocer Sumiha</a><a class="button ghost" href="#datos">Ver el método</a></div>
+      <div class="baseline"><span>Nueva fuente original</span><b>≈ 19,84 %</b><span>menos cobertura negra simulada frente a Arimo Regular*</span></div>
+    </section>
+    <section class="star" id="sumiha">
+      <div class="star-copy"><p class="eyebrow">Fuente estrella / Beta 0.5</p><h2>ECO Sumiha</h2><p class="star-lede">Una sans humanista original de Shiro Labs, diseñada desde cero con trazos continuos y sin perforaciones visibles. Su objetivo es reducir cobertura manteniendo una lectura natural en documentos.</p><div class="star-actions"><a class="button primary" href="../releases/ECO-Sumiha-Beta.zip">Descargar beta</a><a class="button ghost" href="../ECO-SUMIHA-METHOD.md">Ver cálculo exacto</a></div><p class="license-note">Gratuita para uso personal, académico y evaluación interna. La beta no autoriza producción comercial, redistribución ni embedding. El nombre es provisional hasta completar una búsqueda formal de marcas.</p></div>
+      <div class="star-proof"><span class="proof-label">Promedio estimado</span><strong>19,84 %</strong><p>menos cobertura negra rasterizada que Arimo Regular, usando el mismo texto a 11 pt y 600 dpi.</p><dl><div><dt>Legal</dt><dd>20,01 %</dd></div><div><dt>Académico</dt><dd>19,71 %</dd></div><div><dt>Oficina</dt><dd>19,79 %</dd></div></dl><aside><b>Sin pruebas de laboratorio.</b> No equivale a miligramos de tinta ni garantiza ahorro físico en una impresora.</aside></div>
     </section>
     <section class="levels" aria-label="Niveles de cobertura">
       <article><p>01 / Base</p><strong>≈ 2,4 %</strong><span>Reducción medida de área de contorno en el corpus de prueba.</span></article>
@@ -23,7 +27,7 @@
       <article><p>03 / Max</p><strong>≈ 7,9 %</strong><span>Prueba obligatoria con impresora, papel y tamaño final.</span></article>
     </section>
     <section class="families" id="familias">
-      <div class="section-heading"><p class="eyebrow">Tres puntos de partida</p><h2>Una familia para cada clase de documento.</h2></div>
+      <div class="section-heading"><p class="eyebrow">Familias derivadas abiertas</p><h2>Una familia para cada clase de documento.</h2></div>
       <div class="family-grid">
         <article class="family legal"><p class="tag">Legal / lectura extensa</p><h3>ECO Tempura<br>Serif</h3><p>Derivada de Source Serif 4 para contratos, dictámenes, memorias y publicaciones de largo aliento.</p><div class="file-links"><a href="../releases/ECO-Tempura-Serif-Base.zip">Descargar Base</a><a href="../releases/ECO-Tempura-Serif-Plus.zip">Plus</a><a href="../releases/ECO-Tempura-Serif-Max.zip">Max</a></div></article>
         <article class="family academic"><p class="tag">Universidad / investigación</p><h3>ECO Karubi<br>Sans</h3><p>Derivada de Lato para informes, presentaciones, tablas y documentación académica.</p><div class="file-links"><a href="../releases/ECO-Karubi-Sans-Base.zip">Descargar Base</a><a href="../releases/ECO-Karubi-Sans-Plus.zip">Plus</a><a href="../releases/ECO-Karubi-Sans-Max.zip">Max</a></div></article>
@@ -31,18 +35,18 @@
       </div>
     </section>
     <section class="specimen">
-      <div><p class="eyebrow">Muestra tipográfica</p><h2>El texto sigue siendo el protagonista.</h2><p>Elige una familia para cambiar la muestra. Cada variante ECO conserva los avances, el kerning y las métricas verticales de su fuente de partida.</p></div>
-      <div class="specimen-controls" role="group" aria-label="Elegir familia"><button class="selected" data-family="legal">Tempura Serif</button><button data-family="academic">Karubi Sans</button><button data-family="arare">Arare Sans</button></div>
-      <p id="specimenText" class="specimen-text legal-text">Toda modificación deberá constar por escrito y será válida desde su firma.</p>
+      <div><p class="eyebrow">Muestra tipográfica</p><h2>El texto sigue siendo el protagonista.</h2><p>Elige una familia para cambiar la muestra. Sumiha tiene dibujo y métricas propios; las familias derivadas conservan los avances, el kerning y las métricas verticales de su fuente abierta de partida.</p></div>
+      <div class="specimen-controls" role="group" aria-label="Elegir familia"><button class="selected" data-family="sumiha">Sumiha Beta</button><button data-family="legal">Tempura Serif</button><button data-family="academic">Karubi Sans</button><button data-family="arare">Arare Sans</button></div>
+      <p id="specimenText" class="specimen-text sumiha-text">La evidencia clara hace que las buenas ideas lleguen más lejos.</p>
     </section>
     <section class="data" id="datos">
-      <div class="section-heading"><p class="eyebrow">Datos medidos, no promesas genéricas</p><h2>Área de contorno rellenado en texto español.</h2><p>Medimos los contornos de los glifos —incluyendo contraformas y caracteres compuestos— frente a la fuente abierta de partida. Estas cifras no equivalen por sí solas a miligramos de tinta, rendimiento de cartuchos ni velocidad de impresión.</p></div>
-      <div class="data-layout"><div class="data-selector"><button class="data-choice active" data-data-family="legal">ECO Tempura Serif</button><button class="data-choice" data-data-family="academic">ECO Karubi Sans</button><button class="data-choice" data-data-family="arare">ECO Arare Sans</button></div><div class="table-wrap"><table><thead><tr><th>Nivel</th><th>Área restante</th><th>Reducción medida</th></tr></thead><tbody id="resultsTable"></tbody></table><p class="caption" id="dataCaption"></p></div></div>
-      <div class="method"><div><b>Texto y estilo</b><span>Corpus español legal o académico, Regular, 11 pt.</span></div><div><b>Unidad comparada</b><span>Área de los contornos rellenados, no una estimación visual.</span></div><div><b>Consumo físico</b><span>Depende de impresora, papel y perfil; la calculadora solo lo estima con una calibración.</span></div></div>
+      <div class="section-heading"><p class="eyebrow">Datos medidos, no promesas genéricas</p><h2>Cobertura estimada con método reproducible.</h2><p>Sumiha se compara mediante rasterización en escala de grises. Las familias derivadas se comparan mediante área de contornos frente a su fuente abierta de partida. Ninguna cifra equivale por sí sola a miligramos de tinta, rendimiento de cartuchos o velocidad de impresión.</p></div>
+      <div class="data-layout"><div class="data-selector"><button class="data-choice active" data-data-family="sumiha">ECO Sumiha Beta</button><button class="data-choice" data-data-family="legal">ECO Tempura Serif</button><button class="data-choice" data-data-family="academic">ECO Karubi Sans</button><button class="data-choice" data-data-family="arare">ECO Arare Sans</button></div><div class="table-wrap"><table><thead><tr><th>Prueba / nivel</th><th>Cobertura restante</th><th>Reducción medida</th></tr></thead><tbody id="resultsTable"></tbody></table><p class="caption" id="dataCaption"></p></div></div>
+      <div class="method"><div><b>Sumiha</b><span>FreeType/Pillow, escala de grises, mismo texto, 11 pt y 600 dpi frente a Arimo Regular.</span></div><div><b>Fórmula</b><span>100 × (1 − cobertura ECO / cobertura de referencia).</span></div><div><b>Límite principal</b><span>No hay pruebas de laboratorio. Impresora, papel, trama y controlador pueden cambiar el resultado físico.</span></div></div>
     </section>
-    <section class="closing"><p class="eyebrow">Transparencia por defecto</p><h2>Elige el nivel y pruébalo en tu impresión real.</h2><a class="button primary" href="../calculadora-tinta.html">Simular cobertura de una hoja</a><p>* Resultados del corpus y método publicados en el repositorio. Base y Plus no garantizan una apariencia idéntica en toda impresora; Max requiere prueba previa.</p></section>
+    <section class="closing"><p class="eyebrow">Transparencia por defecto</p><h2>Elige el nivel y pruébalo en tu impresión real.</h2><a class="button primary" href="../calculadora-tinta.html">Simular cobertura de una hoja</a><p>* Resultados del corpus y método publicados en el repositorio. Sumiha es una beta sin pruebas de laboratorio. Base y Plus no garantizan una apariencia idéntica en toda impresora; Max requiere prueba previa.</p></section>
   </main>
-  <footer><span>ECO Type · fuentes abiertas derivadas de Source Serif 4, Lato y Arimo.</span><span class="signature">Diseñado y desarrollado por <b>Shiro Labs</b></span><a href="../LICENSES/OFL-1.1.txt">Licencia OFL 1.1</a></footer>
+  <footer><span>ECO Type · mediciones reproducibles, límites publicados.</span><span class="signature">Diseñado y desarrollado por <b>Shiro Labs</b></span><span><a href="../LICENSES/ECO-SUMIHA-BETA-LICENSE.txt">Licencia Sumiha</a> · <a href="../LICENSES/OFL-1.1.txt">OFL familias derivadas</a></span></footer>
   <script src="app.js"></script>
 </body>
 </html>

@@ -1,0 +1,41 @@
+SHIRO LABS ECO SUMIHA FREE BETA LICENSE 1.0
+Copyright 2026 Shiro Labs. All rights reserved.
+
+This license applies only to ECO Sumiha Beta versions 0.x (the “Font Software”).
+
+1. GRANT
+Shiro Labs grants the recipient a no-charge, non-exclusive, non-transferable license to install and use the Font Software for personal projects, academic work, accessibility testing, print testing and internal evaluation.
+
+2. PERMITTED OUTPUT
+The recipient may create and share static, non-editable documents and images for the permitted purposes above, provided that the Font Software itself cannot be extracted or redistributed from those outputs.
+
+3. RESTRICTIONS
+Without prior written permission from Shiro Labs, the recipient may not:
+
+- use the Font Software in commercial production or paid client work;
+- sell, sublicense, share, upload or redistribute the Font Software;
+- modify, convert, rename, reverse engineer or create derivative font software;
+- embed or serve the Font Software in websites, applications, games, e-books, templates, devices, servers or software-as-a-service products;
+- use the Font Software or its outlines to train or evaluate a machine-learning model;
+- remove or alter copyright, authorship, trademark or license information.
+
+4. BETA STATUS
+The Font Software is experimental. It may contain incomplete language coverage, spacing, kerning, rendering or compatibility defects. It has not undergone laboratory testing. Coverage-reduction figures are reproducible software estimates and are not guarantees of physical ink or toner savings.
+
+5. FUTURE VERSIONS
+This no-charge license remains applicable to the specific Beta version received. It does not grant rights to future versions. Shiro Labs may offer later versions, expanded families, commercial-use rights, web embedding, application embedding, support or other licenses for a fee.
+
+6. OWNERSHIP
+Shiro Labs retains all rights, title and interest in the Font Software and its name. No ownership or trademark rights are transferred.
+
+7. NO WARRANTY
+THE FONT SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTIES OF ANY KIND. TO THE MAXIMUM EXTENT PERMITTED BY LAW, SHIRO LABS WILL NOT BE LIABLE FOR DAMAGES ARISING FROM ITS USE OR INABILITY TO USE IT.
+
+8. TERMINATION
+This license terminates automatically if the recipient breaches its terms. Upon termination, the recipient must stop using and delete all copies of the Font Software.
+
+9. CONTACT
+Permissions and commercial licensing inquiries may be submitted through:
+https://github.com/DanserAlvis/fuentes-eco/issues
+
+This beta license is an operational project license and has not been independently reviewed by legal counsel.
