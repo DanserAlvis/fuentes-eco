@@ -1,0 +1,11 @@
+ECO Karubi Sans is a Modified Version of Lato.
+
+Copyright (c) 2011-2015 by tyPoland Lukasz Dziedzic
+(http://www.typoland.com/) with Reserved Font Name "Lato".
+
+Lato is licensed under the SIL Open Font License, Version 1.1.
+The full license text is included in OFL-1.1.txt.
+
+ECO Karubi Sans does not use the Reserved Font Name "Lato" as its primary
+family name. This notice acknowledges the original contribution and does not
+imply sponsorship or endorsement by the original copyright holder.

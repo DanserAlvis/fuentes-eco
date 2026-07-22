@@ -1,0 +1,9 @@
+ECO Arare Sans is a Modified Version of Arimo.
+
+Copyright 2020 The Arimo Project Authors (https://github.com/googlefonts/arimo)
+
+Arimo is licensed under the SIL Open Font License, Version 1.1.
+The full license text is included in OFL-1.1.txt.
+
+This notice acknowledges the original contribution and does not imply
+sponsorship or endorsement by the original copyright holders.

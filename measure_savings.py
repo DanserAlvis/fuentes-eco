@@ -35,25 +35,25 @@ FAMILIES = {
     "legal": {
         "base_source": ROOT / "SourceSerif4-Variable.ttf",
         "outputs": [
-            ("Base", ROOT / "dist/ECO-Legal-Serif-Regular.ttf"),
-            ("Plus", ROOT / "dist/ECO-Legal-Serif-Plus-Regular.ttf"),
-            ("Max", ROOT / "dist/ECO-Legal-Serif-Max-Regular.ttf"),
+            ("Base", ROOT / "dist/ECO-Tempura-Serif-Regular.ttf"),
+            ("Plus", ROOT / "dist/ECO-Tempura-Serif-Plus-Regular.ttf"),
+            ("Max", ROOT / "dist/ECO-Tempura-Serif-Max-Regular.ttf"),
         ],
     },
     "academico": {
         "base_source": Path(r"C:\Windows\Fonts\LatoWeb-Regular.ttf"),
         "outputs": [
-            ("Base", ROOT / "dist/ECO-Academic-Sans-Regular.ttf"),
-            ("Plus", ROOT / "dist/ECO-Academic-Sans-Plus-Regular.ttf"),
-            ("Max", ROOT / "dist/ECO-Academic-Sans-Max-Regular.ttf"),
+            ("Base", ROOT / "dist/ECO-Karubi-Sans-Regular.ttf"),
+            ("Plus", ROOT / "dist/ECO-Karubi-Sans-Plus-Regular.ttf"),
+            ("Max", ROOT / "dist/ECO-Karubi-Sans-Max-Regular.ttf"),
         ],
     },
-    "arial_compatible": {
+    "arare": {
         "base_source": ROOT / "Arimo-Variable.ttf",
         "outputs": [
-            ("Base", ROOT / "dist/ECO-Arial-Compatible-Sans-Regular.ttf"),
-            ("Plus", ROOT / "dist/ECO-Arial-Compatible-Sans-Plus-Regular.ttf"),
-            ("Max", ROOT / "dist/ECO-Arial-Compatible-Sans-Max-Regular.ttf"),
+            ("Base", ROOT / "dist/ECO-Arare-Sans-Regular.ttf"),
+            ("Plus", ROOT / "dist/ECO-Arare-Sans-Plus-Regular.ttf"),
+            ("Max", ROOT / "dist/ECO-Arare-Sans-Max-Regular.ttf"),
         ],
     },
 }

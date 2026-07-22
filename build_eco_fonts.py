@@ -1,4 +1,4 @@
-"""Build the ECO Legal and ECO Academic font families.
+"""Build the ECO Tempura, ECO Karubi and ECO Arare font families.
 
 This is a conservative optical reduction, not a replacement for a printer's
 draft mode.  Glyph advances, kerning and line metrics remain untouched; only
@@ -93,18 +93,18 @@ def build(source, output_name, family, style, weight=None, scale=0.988):
 
 def main():
     sources = [
-        (ROOT / "SourceSerif4-Variable.ttf", "ECO-Legal-Serif", "ECO Legal Serif", "Regular", 400),
-        (ROOT / "SourceSerif4-Variable.ttf", "ECO-Legal-Serif", "ECO Legal Serif", "Bold", 700),
-        (ROOT / "SourceSerif4-Italic-Variable.ttf", "ECO-Legal-Serif", "ECO Legal Serif", "Italic", 400),
-        (ROOT / "SourceSerif4-Italic-Variable.ttf", "ECO-Legal-Serif", "ECO Legal Serif", "Bold Italic", 700),
-        (Path(r"C:\Windows\Fonts\LatoWeb-Regular.ttf"), "ECO-Academic-Sans", "ECO Academic Sans", "Regular", None),
-        (Path(r"C:\Windows\Fonts\LatoWeb-Bold.ttf"), "ECO-Academic-Sans", "ECO Academic Sans", "Bold", None),
-        (Path(r"C:\Windows\Fonts\LatoWeb-Italic.ttf"), "ECO-Academic-Sans", "ECO Academic Sans", "Italic", None),
-        (Path(r"C:\Windows\Fonts\LatoWeb-BoldItalic.ttf"), "ECO-Academic-Sans", "ECO Academic Sans", "Bold Italic", None),
-        (ROOT / "Arimo-Variable.ttf", "ECO-Arial-Compatible-Sans", "ECO Arial Compatible Sans", "Regular", 400),
-        (ROOT / "Arimo-Variable.ttf", "ECO-Arial-Compatible-Sans", "ECO Arial Compatible Sans", "Bold", 700),
-        (ROOT / "Arimo-Italic-Variable.ttf", "ECO-Arial-Compatible-Sans", "ECO Arial Compatible Sans", "Italic", 400),
-        (ROOT / "Arimo-Italic-Variable.ttf", "ECO-Arial-Compatible-Sans", "ECO Arial Compatible Sans", "Bold Italic", 700),
+        (ROOT / "SourceSerif4-Variable.ttf", "ECO-Tempura-Serif", "ECO Tempura Serif", "Regular", 400),
+        (ROOT / "SourceSerif4-Variable.ttf", "ECO-Tempura-Serif", "ECO Tempura Serif", "Bold", 700),
+        (ROOT / "SourceSerif4-Italic-Variable.ttf", "ECO-Tempura-Serif", "ECO Tempura Serif", "Italic", 400),
+        (ROOT / "SourceSerif4-Italic-Variable.ttf", "ECO-Tempura-Serif", "ECO Tempura Serif", "Bold Italic", 700),
+        (Path(r"C:\Windows\Fonts\LatoWeb-Regular.ttf"), "ECO-Karubi-Sans", "ECO Karubi Sans", "Regular", None),
+        (Path(r"C:\Windows\Fonts\LatoWeb-Bold.ttf"), "ECO-Karubi-Sans", "ECO Karubi Sans", "Bold", None),
+        (Path(r"C:\Windows\Fonts\LatoWeb-Italic.ttf"), "ECO-Karubi-Sans", "ECO Karubi Sans", "Italic", None),
+        (Path(r"C:\Windows\Fonts\LatoWeb-BoldItalic.ttf"), "ECO-Karubi-Sans", "ECO Karubi Sans", "Bold Italic", None),
+        (ROOT / "Arimo-Variable.ttf", "ECO-Arare-Sans", "ECO Arare Sans", "Regular", 400),
+        (ROOT / "Arimo-Variable.ttf", "ECO-Arare-Sans", "ECO Arare Sans", "Bold", 700),
+        (ROOT / "Arimo-Italic-Variable.ttf", "ECO-Arare-Sans", "ECO Arare Sans", "Italic", 400),
+        (ROOT / "Arimo-Italic-Variable.ttf", "ECO-Arare-Sans", "ECO Arare Sans", "Bold Italic", 700),
     ]
     for level, (scale, file_suffix, family_suffix) in LEVELS.items():
         for source, file_prefix, family, style, weight in sources:

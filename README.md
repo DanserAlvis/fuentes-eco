@@ -1,43 +1,41 @@
-# Fuentes ECO para documentos legales y académicos
+# ECO Type
 
-`dist/` contiene tres familias para impresión sobria de contratos, informes y tesis:
+ECO Type es una colección de fuentes abiertas derivadas para documentos legales, académicos y de oficina. Las variantes ECO reducen el área de contorno rellenado de los glifos sin cambiar los avances, el kerning ni las métricas verticales del diseño de partida.
 
-- **ECO Legal Serif**: serif de lectura larga, basada en Source Serif 4.
-- **ECO Academic Sans**: sans serif limpia para informes, basada en Lato.
-- **ECO Arial Compatible Sans**: sans serif inspirada en la proporción y métricas de Arial, basada en Arimo (alternativa abierta compatible métricamente; no es Arial).
+## Familias
+
+- **ECO Tempura Serif** deriva de Source Serif 4. Está pensada para lectura extensa, contratos e informes.
+- **ECO Karubi Sans** deriva de Lato. Está pensada para documentos académicos e informes.
+- **ECO Arare Sans** deriva de Arimo. Está pensada para documentos de oficina. Arimo mantiene métricas de avance compatibles con Arial; ECO Arare Sans es una familia independiente, no afiliada ni respaldada por Microsoft.
 
 Cada familia incluye Regular, Italic, Bold y Bold Italic, en tres niveles:
 
-- **Base**: 1,2 % de contracción; ahorro nominal de cobertura de **2,39 %**.
-- **Plus**: 2,5 % de contracción; ahorro nominal de cobertura de **4,94 %**.
-- **Max**: 4,0 % de contracción; ahorro nominal de cobertura de **7,84 %**. Puede percibirse en impresoras nítidas o papeles lisos.
+- **Base**: contracción geométrica de 1,2 %.
+- **Plus**: contracción geométrica de 2,5 %.
+- **Max**: contracción geométrica de 4,0 %. Requiere una prueba con la impresora y el papel de destino.
 
-Instala los `.ttf` con clic derecho → **Instalar para todos los usuarios**, y selecciónalas por su nombre de familia en Word, LibreOffice o LaTeX. No instales simultáneamente Base, Plus y Max de una misma familia si no necesitas compararlas: son familias separadas para evitar cambiar accidentalmente el nivel ECO.
+Los niveles no prometen un porcentaje universal de tinta ni una mayor velocidad de impresión. En el corpus y método indicados abajo, la reducción medida del área de contorno es aproximadamente 2,3–2,4 % (Base), 4,8–5,0 % (Plus) y 7,8–7,9 % (Max). El consumo físico depende además del controlador, resolución, tramado, tinta/tóner y papel.
 
-## Diseño ECO
+## Medición reproducible
 
-Cada contorno se contrae alrededor de su origen óptico. El avance, kerning y métricas verticales no cambian, de modo que un documento existente no se redistribuye. La reducción nominal de cobertura es:
+`measure_savings.py` compara el área rellenada de los contornos de textos españoles representativos, en Regular a 11 pt, frente a la fuente abierta de partida. No mide miligramos de tinta física ni rendimiento de cartuchos. `calculadora-tinta.html` simula la cobertura rasterizada de una hoja y solo estima masa si se proporciona un factor calibrado para la impresora.
 
-`ahorro = 1 − (1 − 0,012)^2 = 2,39 %`
+## Licencias y avisos
 
-En impresión láser o inkjet de oficina, el punto suele ganar aproximadamente 15–40 μm sobre el contorno ideal. A 10–12 pt, la contracción aplicada equivale aproximadamente a 10–13 μm: es menor que esa expansión habitual y por eso conserva una apariencia prácticamente normal. Las impresoras y papeles varían: realiza una prueba con tu modelo antes de una tirada jurídica crítica.
+Las fuentes ECO son modificaciones distribuidas bajo SIL Open Font License 1.1. Consulta el texto completo en [`LICENSES/OFL-1.1.txt`](LICENSES/OFL-1.1.txt) y los avisos de atribución en:
 
-La reducción de cobertura puede disminuir el uso de tóner/tinta y el tiempo de secado en inkjet, pero no asegura más páginas por minuto: esa velocidad está dominada por el mecanismo de la impresora y por la complejidad de cada página.
+- [`LICENSES/NOTICE-Source-Serif-4.txt`](LICENSES/NOTICE-Source-Serif-4.txt)
+- [`LICENSES/NOTICE-Lato.txt`](LICENSES/NOTICE-Lato.txt)
+- [`LICENSES/NOTICE-Arimo.txt`](LICENSES/NOTICE-Arimo.txt)
 
-## Límites responsables
+Los nombres reservados de las fuentes base no se usan como nombres de familia de los archivos ECO. No se han modificado ni redistribuido Times New Roman, Arial, Calibri, Cambria o Garamond.
 
-No se modificaron Times New Roman, Arial, Calibri, Cambria ni Garamond: sus licencias propietarias no autorizan crear redistribuciones ECO. ECO Arial Compatible Sans ofrece una alternativa abierta inspirada en Arial, pero conserva su propio nombre; estas familias no sustituyen silenciosamente fuentes instaladas.
+Los paquetes de `releases/` incluyen las cuatro variantes de estilo, el aviso de atribución correspondiente y el texto OFL 1.1. Usa esos paquetes al redistribuir una familia.
 
-Para reconstruir las fuentes: instala FontTools y ejecuta `build_eco_fonts.py`. El script conserva la fuente original y reproduce el proceso.
+## Reconstrucción
 
-## Licencias y atribución
+Ejecuta `build_eco_fonts.py` con FontTools instalado. Las fuentes base variables de Source Serif 4 y Arimo están incluidas para reproducibilidad; Lato se toma de la instalación local de Windows. Verifica los resultados con `verify_eco_fonts.py`.
 
-- ECO Legal Serif deriva de [Source Serif 4](https://github.com/adobe-fonts/source-serif), distribuida bajo SIL Open Font License 1.1.
-- ECO Academic Sans deriva de [Lato](https://github.com/latofonts/lato), distribuida bajo SIL Open Font License 1.1.
-- ECO Arial Compatible Sans deriva de [Arimo](https://fonts.google.com/specimen/Arimo), distribuida bajo SIL Open Font License 1.1.
+## Sitio y calculadora
 
-Las familias ECO se distribuyen bajo SIL Open Font License 1.1. Los nombres de familia reservados de las fuentes originales no se usan en los archivos resultantes.
-
-## Presentación y mediciones
-
-Abre [`showcase/index.html`](showcase/index.html) para ver la presentación del proyecto, descargar las familias y consultar los resultados medidos. Los porcentajes se generan de forma reproducible con `measure_savings.py`: compara el área rellenada de los contornos de textos representativos en español contra la fuente abierta de origen. No equivalen por sí solos a miligramos de tinta física; para ello utiliza `calculadora-tinta.html` con el factor de calibración de tu impresora.
+Abre [`showcase/index.html`](showcase/index.html) para la presentación local y `calculadora-tinta.html` para la simulación de cobertura de una hoja.
