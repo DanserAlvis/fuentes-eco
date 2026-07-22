@@ -1,0 +1,8 @@
+_deps/
+tools/
+*.zip
+*.py
+Arimo-Variable.ttf
+Arimo-Italic-Variable.ttf
+SourceSerif4-Variable.ttf
+SourceSerif4-Italic-Variable.ttf
