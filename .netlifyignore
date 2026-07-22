@@ -1,5 +1,6 @@
 _deps/
 tools/
+experimental/
 *.zip
 *.py
 Arimo-Variable.ttf
