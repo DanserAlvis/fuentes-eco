@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Familias tipográficas ECO para documentos legales, académicos y compatibles con Arial.">
+  <title>ECO Type — menos cobertura, mismo documento</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="nav"><a class="brand" href="#inicio">ECO<span>TYPE</span></a><div><a href="#familias">Familias</a><a href="#datos">Datos</a><a class="nav-cta" href="../calculadora-tinta.html">Calcular mi hoja</a></div></nav>
+  <main id="inicio">
+    <section class="hero">
+      <p class="eyebrow">Tipografía para papel que importa</p>
+      <h1>Menos cobertura.<br><em>Mismo documento.</em></h1>
+      <p class="lede">Fuentes abiertas para contratos, informes y tesis. Reducen de forma medida el área negra de los glifos, conservando avances y métricas para no reordenar el texto.</p>
+      <div class="hero-actions"><a class="button primary" href="#familias">Explorar familias</a><a class="button ghost" href="#datos">Ver cómo medimos</a></div>
+      <div class="baseline"><span>Base</span><b>2,3–2,4 %</b><span>menos área negra medida</span></div>
+    </section>
+
+    <section class="levels" aria-label="Niveles de ahorro">
+      <article><p>01 / Base</p><strong>≈ 2,4 %</strong><span>Para documentos de apariencia prácticamente idéntica.</span></article>
+      <article><p>02 / Plus</p><strong>≈ 4,9 %</strong><span>El equilibrio recomendado para uso cotidiano.</span></article>
+      <article><p>03 / Max</p><strong>≈ 7,9 %</strong><span>Para probar con tu impresora y tipo de papel.</span></article>
+    </section>
+
+    <section class="families" id="familias">
+      <div class="section-heading"><p class="eyebrow">Tres puntos de partida</p><h2>Una familia para cada clase de documento.</h2></div>
+      <div class="family-grid">
+        <article class="family legal"><p class="tag">Legal / lectura extensa</p><h3>ECO Legal<br>Serif</h3><p>Una serif sobria para contratos, dictámenes, memorias y publicaciones de largo aliento.</p><div class="file-links"><a href="../dist/ECO-Legal-Serif-Regular.ttf">Descargar Base</a><a href="../dist/ECO-Legal-Serif-Plus-Regular.ttf">Plus</a><a href="../dist/ECO-Legal-Serif-Max-Regular.ttf">Max</a></div></article>
+        <article class="family academic"><p class="tag">Universidad / investigación</p><h3>ECO Academic<br>Sans</h3><p>Una sans limpia para informes, presentaciones, tablas y documentación académica.</p><div class="file-links"><a href="../dist/ECO-Academic-Sans-Regular.ttf">Descargar Base</a><a href="../dist/ECO-Academic-Sans-Plus-Regular.ttf">Plus</a><a href="../dist/ECO-Academic-Sans-Max-Regular.ttf">Max</a></div></article>
+        <article class="family arial"><p class="tag">Oficina / compatible con Arial</p><h3>ECO Arial<br>Compatible Sans</h3><p>Una alternativa abierta, inspirada en las proporciones y métricas de Arial, para documentos de oficina.</p><div class="file-links"><a href="../dist/ECO-Arial-Compatible-Sans-Regular.ttf">Descargar Base</a><a href="../dist/ECO-Arial-Compatible-Sans-Plus-Regular.ttf">Plus</a><a href="../dist/ECO-Arial-Compatible-Sans-Max-Regular.ttf">Max</a></div></article>
+      </div>
+    </section>
+
+    <section class="specimen">
+      <div><p class="eyebrow">Muestra tipográfica</p><h2>El texto sigue siendo el protagonista.</h2><p>Elige una familia para cambiar la muestra. Las fuentes ECO conservan las métricas horizontales y verticales del diseño de partida.</p></div>
+      <div class="specimen-controls" role="group" aria-label="Elegir familia"><button class="selected" data-family="legal">Legal Serif</button><button data-family="academic">Academic Sans</button><button data-family="arial">Arial Compatible</button></div>
+      <p id="specimenText" class="specimen-text legal-text">Toda modificación deberá constar por escrito y será válida desde su firma.</p>
+    </section>
+
+    <section class="data" id="datos">
+      <div class="section-heading"><p class="eyebrow">Datos medidos, no promesas genéricas</p><h2>Área negra de contornos en texto español.</h2><p>Medimos las áreas rellenadas de los glifos —incluyendo contraformas y caracteres compuestos— frente a la fuente abierta de origen. No convertimos esa cifra en “páginas extra” ni prometemos velocidad de impresión.</p></div>
+      <div class="data-layout">
+        <div class="data-selector"><button class="data-choice active" data-data-family="legal">ECO Legal Serif</button><button class="data-choice" data-data-family="academic">ECO Academic Sans</button><button class="data-choice" data-data-family="arial">ECO Arial Compatible Sans</button></div>
+        <div class="table-wrap"><table><thead><tr><th>Nivel</th><th>Área negra restante</th><th>Ahorro medido</th></tr></thead><tbody id="resultsTable"></tbody></table><p class="caption" id="dataCaption"></p></div>
+      </div>
+      <div class="method"><div><b>Texto y estilo</b><span>Corpus español legal o académico, Regular, 11 pt.</span></div><div><b>Unidad comparada</b><span>Área de los contornos rellenados, no estimación visual.</span></div><div><b>Consumo físico</b><span>Depende de impresora, papel y perfil; mídelo con la calculadora incluida.</span></div></div>
+    </section>
+
+    <section class="closing"><p class="eyebrow">Transparencia por defecto</p><h2>Elige el ahorro que tu impresión pueda sostener.</h2><a class="button primary" href="../calculadora-tinta.html">Medir una hoja con tu fuente</a><p>Base y Plus están pensadas para uso general. Antes de imprimir material crítico, prueba Max en tu impresora, papel y tamaño final.</p></section>
+  </main>
+  <footer><span>ECO Type · fuentes abiertas derivadas de Source Serif 4, Lato y Arimo.</span><a href="../README.md">Licencias y método</a></footer>
+  <script src="app.js"></script>
+</body>
+</html>

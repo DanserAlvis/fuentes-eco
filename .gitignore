@@ -1,0 +1,8 @@
+# Local build dependency and portable command-line tools
+_deps/
+tools/
+*.zip
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculadora ECO de tinta</title>
+  <style>
+    :root { --ink:#182127; --muted:#59646a; --paper:#fffefa; --line:#d9dfdc; --accent:#087f5b; --soft:#e9f5ef; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:#f3f6f4; font:16px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    header { background:#102d25; color:#fff; padding:38px max(20px,calc((100% - 1180px)/2)); }
+    h1 { font-size:clamp(1.7rem,3vw,2.45rem); margin:0 0 8px; letter-spacing:-.035em; }
+    header p { max-width:760px; margin:0; color:#d9ebe4; }
+    main { max-width:1180px; margin:28px auto 56px; padding:0 20px; display:grid; grid-template-columns:minmax(300px,410px) 1fr; gap:24px; align-items:start; }
+    .panel,.results { background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:0 8px 28px #1734280b; }
+    .panel { padding:22px; }
+    h2 { font-size:1.08rem; margin:0 0 14px; }
+    .group { border:0; border-top:1px solid var(--line); padding:17px 0 0; margin:17px 0 0; }
+    .group legend { font-weight:700; padding:0 0 4px; }
+    label { display:block; font-size:.88rem; font-weight:650; margin:10px 0 5px; }
+    input, textarea, select, button { font:inherit; }
+    input, textarea, select { width:100%; padding:9px 10px; color:var(--ink); background:#fff; border:1px solid #bfcac5; border-radius:7px; }
+    textarea { min-height:190px; resize:vertical; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .hint { font-size:.78rem; color:var(--muted); margin:5px 0 0; }
+    button { border:0; border-radius:8px; padding:11px 14px; cursor:pointer; font-weight:750; }
+    .primary { width:100%; margin-top:18px; color:#fff; background:var(--accent); }
+    .secondary { color:#075e45; background:var(--soft); margin-top:8px; font-size:.86rem; }
+    .status { min-height:22px; font-size:.86rem; color:var(--muted); margin:11px 0 0; }
+    .results { overflow:hidden; }
+    .summary { padding:21px 22px; background:#f7fbf9; border-bottom:1px solid var(--line); }
+    .summary strong { display:block; color:var(--accent); font-size:2rem; letter-spacing:-.05em; }
+    .summary p { margin:3px 0 0; color:var(--muted); font-size:.9rem; }
+    .metrics { display:grid; grid-template-columns:repeat(4,1fr); border-bottom:1px solid var(--line); }
+    .metric { padding:17px 20px; border-right:1px solid var(--line); }
+    .metric:last-child { border:0; }
+    .metric span { display:block; font-size:.77rem; color:var(--muted); }
+    .metric b { display:block; margin-top:4px; font-size:1.18rem; }
+    .preview-wrap { padding:22px; background:#eef2f0; }
+    .preview-head { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:12px; }
+    .preview-head p { margin:0; font-size:.78rem; color:var(--muted); }
+    #pagePreview { display:block; width:min(100%,620px); height:auto; margin:auto; background:var(--paper); box-shadow:0 12px 35px #17231c25; }
+    .note { padding:18px 22px; font-size:.84rem; color:#425047; }
+    .note b { color:var(--ink); }
+    @media (max-width:800px) { main { grid-template-columns:1fr; } .metrics { grid-template-columns:1fr; } .metric { border-right:0; border-bottom:1px solid var(--line); } .metric:last-child { border-bottom:0; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Calculadora ECO de tinta</h1>
+    <p>Carga una fuente, compón una hoja A4 y mide la cobertura negra de sus píxeles. El resultado se calcula sobre la página real que ves, no mediante un promedio genérico por fuente.</p>
+  </header>
+
+  <main>
+    <form class="panel" id="controls">
+      <h2>1. Fuente y contenido</h2>
+      <label for="fontFile">Fuente ECO a medir (.ttf, .otf, .woff o .woff2)</label>
+      <input id="fontFile" type="file" accept=".ttf,.otf,.woff,.woff2,font/*" required>
+      <p class="hint" id="fontName">Aún no se ha cargado una fuente.</p>
+      <label for="referenceFile">Fuente de referencia para comparar (opcional)</label>
+      <input id="referenceFile" type="file" accept=".ttf,.otf,.woff,.woff2,font/*">
+      <p class="hint" id="referenceName">Carga aquí la fuente original o la variante Base para ver el ahorro relativo.</p>
+
+      <label for="content">Texto de una hoja</label>
+      <textarea id="content">El presente documento establece las condiciones aplicables a las partes. La información se entrega para fines académicos, administrativos y legales. Las obligaciones deberán cumplirse de buena fe, dentro de los plazos señalados y conforme a la normativa vigente.</textarea>
+      <button class="secondary" id="fillPage" type="button">Repetir texto hasta llenar una hoja</button>
+
+      <fieldset class="group">
+        <legend>2. Composición A4</legend>
+        <div class="grid">
+          <div><label for="fontSize">Tamaño (pt)</label><input id="fontSize" type="number" min="5" max="36" value="11" step="0.1"></div>
+          <div><label for="lineHeight">Interlineado</label><input id="lineHeight" type="number" min="0.8" max="3" value="1.35" step="0.05"></div>
+          <div><label for="margin">Margen (mm)</label><input id="margin" type="number" min="5" max="50" value="25" step="1"></div>
+          <div><label for="dpi">Resolución (dpi)</label><select id="dpi"><option value="300">300</option><option value="600" selected>600</option><option value="1200">1200</option></select></div>
+        </div>
+      </fieldset>
+
+      <fieldset class="group">
+        <legend>3. Calibración de tinta negra</legend>
+        <label for="inkFactor">Depósito a 100 % de cobertura (mg/cm²)</label>
+        <input id="inkFactor" type="number" min="0" value="1" step="0.01">
+        <p class="hint">Introduce el dato de tu impresora o tu propia medición. Con 1,00 se informa cobertura y una estimación normalizada, no el consumo físico certificado.</p>
+      </fieldset>
+
+      <button class="primary" type="submit">Calcular hoja completa</button>
+      <p class="status" id="status" aria-live="polite"></p>
+    </form>
+
+    <section class="results" aria-live="polite">
+      <div class="summary"><strong id="coverage">—</strong><p>Cobertura negra ponderada de la hoja A4 completa</p></div>
+      <div class="metrics">
+        <div class="metric"><span>Área negra equivalente</span><b id="area">—</b></div>
+        <div class="metric"><span>Consumo estimado</span><b id="mass">—</b></div>
+        <div class="metric"><span>Ahorro vs. referencia</span><b id="saving">—</b></div>
+        <div class="metric"><span>Texto que cabe</span><b id="fit">—</b></div>
+      </div>
+      <div class="preview-wrap">
+        <div class="preview-head"><h2>Vista rasterizada</h2><p id="renderInfo">Carga una fuente para empezar</p></div>
+        <canvas id="pagePreview" width="1240" height="1754"></canvas>
+      </div>
+      <div class="note"><b>Qué mide con precisión:</b> la cobertura de píxel del texto rasterizado con el navegador a la resolución escogida. <b>Qué requiere calibración:</b> los miligramos reales; dependen de tinta/tóner, modo de impresión, papel, densidad, tramado y mantenimiento de la impresora.</div>
+    </section>
+  </main>
+
+  <script>
+    const MM_PER_INCH = 25.4, CM2_PER_IN2 = 6.4516;
+    const el = id => document.getElementById(id);
+    const fonts = { candidate:null, reference:null, candidateUrl:null, referenceUrl:null };
+
+    function fmt(value, digits = 2) { return new Intl.NumberFormat('es-CL', { maximumFractionDigits: digits, minimumFractionDigits: digits }).format(value); }
+    function fontFormat(file) { const ext = file.name.split('.').pop().toLowerCase(); return ({ttf:'truetype',otf:'opentype',woff:'woff',woff2:'woff2'})[ext] || 'truetype'; }
+
+    async function loadFont(kind, file) {
+      if (!file) return;
+      el('status').textContent = 'Cargando fuente…';
+      try {
+        if (fonts[kind + 'Url']) URL.revokeObjectURL(fonts[kind + 'Url']);
+        fonts[kind + 'Url'] = URL.createObjectURL(file);
+        fonts[kind] = 'Fuente_' + kind + '_' + Date.now() + '_' + Math.random().toString(36).slice(2);
+        const face = new FontFace(fonts[kind], `url(${fonts[kind + 'Url']}) format('${fontFormat(file)}')`);
+        await face.load(); document.fonts.add(face);
+        el(kind === 'candidate' ? 'fontName' : 'referenceName').textContent = `Fuente cargada: ${file.name}`;
+        el('status').textContent = 'Fuente lista para calcular.';
+      } catch (error) {
+        fonts[kind] = null; el(kind === 'candidate' ? 'fontName' : 'referenceName').textContent = 'No se pudo interpretar esta fuente en el navegador.';
+        el('status').textContent = 'Prueba un archivo TTF, OTF, WOFF o WOFF2 sin restricciones de incrustación.';
+      }
+    }
+    el('fontFile').addEventListener('change', event => loadFont('candidate', event.target.files[0]));
+    el('referenceFile').addEventListener('change', event => loadFont('reference', event.target.files[0]));
+
+    el('fillPage').addEventListener('click', () => {
+      const sample = el('content').value.trim() || 'Texto de muestra. ';
+      el('content').value = Array(150).fill(sample).join(' ');
+    });
+
+    function getSettings() {
+      const dpi = Number(el('dpi').value), width = Math.round(210 / MM_PER_INCH * dpi), height = Math.round(297 / MM_PER_INCH * dpi);
+      return { dpi, width, height, margin: Number(el('margin').value) / MM_PER_INCH * dpi, size: Number(el('fontSize').value) / 72 * dpi, lineHeight: Number(el('lineHeight').value), factor: Number(el('inkFactor').value), text: el('content').value };
+    }
+
+    function wrapText(ctx, text, maxWidth) {
+      const paragraphs = text.replace(/\r/g, '').split('\n'); const lines = [];
+      for (const paragraph of paragraphs) {
+        const words = paragraph.trim().split(/\s+/).filter(Boolean); let line = '';
+        for (const word of words) {
+          const attempt = line ? line + ' ' + word : word;
+          if (ctx.measureText(attempt).width <= maxWidth || !line) line = attempt;
+          else { lines.push(line); line = word; }
+        }
+        if (line) lines.push(line);
+        if (!words.length) lines.push('');
+      }
+      return lines;
+    }
+
+    function drawAndMeasure(settings, family) {
+      const canvas = document.createElement('canvas'); canvas.width = settings.width; canvas.height = settings.height;
+      const ctx = canvas.getContext('2d', { willReadFrequently:true });
+      ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, settings.width, settings.height);
+      ctx.fillStyle = '#000'; ctx.font = `${settings.size}px "${family}"`; ctx.textBaseline = 'alphabetic';
+      const lines = wrapText(ctx, settings.text, settings.width - settings.margin * 2);
+      const leading = settings.size * settings.lineHeight, firstBaseline = settings.margin + settings.size;
+      const maxLines = Math.max(0, Math.floor((settings.height - settings.margin - firstBaseline) / leading) + 1);
+      const visible = lines.slice(0, maxLines);
+      visible.forEach((line, index) => ctx.fillText(line, settings.margin, firstBaseline + index * leading));
+      const pixels = ctx.getImageData(0, 0, settings.width, settings.height).data;
+      let blackEquivalentPixels = 0;
+      for (let i = 0; i < pixels.length; i += 4) blackEquivalentPixels += (255 - pixels[i]) / 255;
+      return { canvas, lines:lines.length, visible:visible.length, overflow:lines.length > visible.length, blackEquivalentPixels };
+    }
+
+    function showPreview(source) {
+      const target = el('pagePreview'); const maxWidth = 1240;
+      target.width = Math.min(source.width, maxWidth); target.height = Math.round(source.height * target.width / source.width);
+      target.getContext('2d').drawImage(source, 0, 0, target.width, target.height);
+    }
+
+    el('controls').addEventListener('submit', event => {
+      event.preventDefault();
+      if (!fonts.candidate) { el('status').textContent = 'Primero carga una fuente ECO.'; return; }
+      const s = getSettings();
+      if (!s.text.trim()) { el('status').textContent = 'Añade el texto de la hoja.'; return; }
+      if (s.dpi === 1200) { el('status').textContent = 'Rasterizando a 1200 dpi; puede tardar unos segundos…'; }
+      else el('status').textContent = 'Rasterizando y contando cobertura…';
+      requestAnimationFrame(() => {
+        try {
+          const r = drawAndMeasure(s, fonts.candidate); const pagePixels = s.width * s.height;
+          const coverage = r.blackEquivalentPixels / pagePixels * 100;
+          const areaCm2 = r.blackEquivalentPixels / (s.dpi * s.dpi) * CM2_PER_IN2;
+          const mass = areaCm2 * s.factor;
+          const reference = fonts.reference ? drawAndMeasure(s, fonts.reference) : null;
+          const savedPixels = reference ? reference.blackEquivalentPixels - r.blackEquivalentPixels : 0;
+          const saving = reference ? savedPixels / reference.blackEquivalentPixels * 100 : null;
+          const savedMass = reference ? savedPixels / (s.dpi * s.dpi) * CM2_PER_IN2 * s.factor : null;
+          el('coverage').textContent = fmt(coverage, 3) + ' %';
+          el('area').textContent = fmt(areaCm2, 3) + ' cm²';
+          el('mass').textContent = fmt(mass, 3) + ' mg';
+          el('saving').textContent = saving === null ? '—' : fmt(saving, 3) + ' %';
+          el('fit').textContent = r.visible + ' / ' + r.lines + (r.overflow ? ' líneas*' : ' líneas');
+          el('renderInfo').textContent = `A4 · ${s.dpi} dpi · ${fmt(s.size / s.dpi * 72, 1)} pt`;
+          showPreview(r.canvas);
+          let message = r.overflow ? 'Cálculo terminado. * El texto que excede la primera hoja no se incluyó.' : 'Cálculo terminado para una hoja completa.';
+          if (saving !== null) message += ` Ahorro comparado: ${fmt(saving, 3)} % (${fmt(savedMass, 4)} mg con tu factor).`;
+          else message += ' Carga una fuente de referencia para medir el ahorro relativo.';
+          el('status').textContent = message;
+        } catch (error) { el('status').textContent = 'No fue posible rasterizar la página con estos valores.'; }
+      });
+    });
+  </script>
+</body>
+</html>
