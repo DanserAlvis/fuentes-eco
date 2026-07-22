@@ -22,7 +22,7 @@ La comparación rasterizada a 11 pt y 600 dpi produce:
 5. El resultado se calcula como `100 × (1 - cobertura_Sumiha / cobertura_Arimo)`.
 6. El promedio publicado es la media aritmética de los tres corpus.
 
-El script [`measure_sumiha_universal.py`](measure_sumiha_universal.py) reproduce el cálculo y contiene los textos completos empleados.
+El script [`measure_sumiha_universal.py`](https://github.com/DanserAlvis/fuentes-eco/blob/main/measure_sumiha_universal.py) reproduce el cálculo y contiene los textos completos empleados.
 
 ## Qué significa y qué no significa
 
